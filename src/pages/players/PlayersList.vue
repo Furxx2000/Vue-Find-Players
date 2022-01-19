@@ -1,16 +1,19 @@
 <template>
   <section>
-    <players-filter @position-filter="positionFilter"></players-filter>
+    <players-filter
+      @search-term="updateSearch"
+      @position-filter="positionFilter"
+      :search-term="enteredSearchTerm"
+    ></players-filter>
   </section>
   <section>
     <base-card>
       <ul>
         <player-item
-          v-for="player in filteredPlayers"
+          v-for="player in searchPlayer"
           :key="player.id"
           :id="player.id"
-          :first-name="player.firstName.chiFirstName"
-          :last-name="player.lastName.chiLastName"
+          :name="player.names.chiName"
           :position="player.position"
           :team="player.team.engTeamName"
         ></player-item>
@@ -23,7 +26,7 @@
 import PlayersFilter from "../../components/players/PlayersFilter";
 import PlayerItem from "../../components/players/PlayerItem";
 
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -34,9 +37,15 @@ export default {
   setup() {
     const store = useStore();
     const position = ref("全部");
+    const enteredSearchTerm = ref("");
+    const activeSearchTerm = ref("");
 
     function positionFilter(val) {
       position.value = val;
+    }
+
+    function updateSearch(val) {
+      enteredSearchTerm.value = val;
     }
 
     const filteredPlayers = computed(() => {
@@ -47,11 +56,30 @@ export default {
           return player.position === position.value;
         });
       }
-
       return players.value;
     });
 
-    return { positionFilter, filteredPlayers };
+    const searchPlayer = computed(() => {
+      let filteredTerms = [];
+      if (activeSearchTerm.value) {
+        filteredTerms = filteredPlayers.value.filter((player) =>
+          player.names.chiName.includes(activeSearchTerm.value)
+        );
+      } else {
+        filteredTerms = filteredPlayers.value;
+      }
+      return filteredTerms;
+    });
+
+    watch(enteredSearchTerm, function (newValue) {
+      setTimeout(() => {
+        if (newValue === enteredSearchTerm.value) {
+          activeSearchTerm.value = newValue;
+        }
+      }, 300);
+    });
+
+    return { positionFilter, updateSearch, searchPlayer, enteredSearchTerm };
   },
 };
 </script>
