@@ -9,13 +9,9 @@ export default {
       players: [
         {
           id: "F12",
-          firstName: {
-            chiFirstName: "林",
-            engFirstName: "Lin",
-          },
-          lastName: {
-            chiLastName: "志傑",
-            engLastName: "Chih-Chieh",
+          names: {
+            chiName: "林志傑",
+            engName: "Lin Chih-Chieh",
           },
           city: {
             chiCityName: "台北",
@@ -30,13 +26,9 @@ export default {
         },
         {
           id: "F1",
-          firstName: {
-            chiFirstName: "林",
-            engFirstName: "Lin",
-          },
-          lastName: {
-            chiLastName: "書緯",
-            engLastName: "Joseph Shu-Wei",
+          names: {
+            chiName: "林書緯",
+            engName: "Lin Joseph Shu-Wei",
           },
           city: {
             chiCityName: "台北",
@@ -51,13 +43,9 @@ export default {
         },
         {
           id: "F3",
-          firstName: {
-            chiFirstName: "張",
-            engFirstName: "Chang",
-          },
-          lastName: {
-            chiLastName: "宗憲",
-            engLastName: "Tsung-Hsien",
+          names: {
+            chiName: "張宗憲",
+            engName: "Chang Tsung-Hsien",
           },
           city: {
             chiCityName: "台北",
@@ -72,13 +60,9 @@ export default {
         },
         {
           id: "F17",
-          firstName: {
-            chiFirstName: "辛",
-            engFirstName: "Michael",
-          },
-          lastName: {
-            chiLastName: "特力",
-            engLastName: "Singletary",
+          names: {
+            chiName: "辛特力",
+            engName: "Michael Singletary",
           },
           city: {
             chiCityName: "台北",
@@ -93,13 +77,9 @@ export default {
         },
         {
           id: "F21",
-          firstName: {
-            chiFirstName: "曾",
-            engFirstName: "Tseng",
-          },
-          lastName: {
-            chiLastName: "祥鈞",
-            engLastName: "Hsiang-Chun",
+          names: {
+            chiName: "曾祥鈞",
+            engName: "Tseng Hsiang-Chun",
           },
           city: {
             chiCityName: "台北",
@@ -114,13 +94,9 @@ export default {
         },
         {
           id: "F32",
-          firstName: {
-            chiFirstName: "塞",
-            engFirstName: "Ihor",
-          },
-          lastName: {
-            chiLastName: "瑟夫",
-            engLastName: "Zaytsev",
+          names: {
+            chiName: "塞瑟夫",
+            engName: "Ihor Zaytsev",
           },
           city: {
             chiCityName: "台北",
