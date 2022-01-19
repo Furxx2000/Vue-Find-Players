@@ -7,9 +7,13 @@
         <li id="forward" @click="clicked">前鋒</li>
         <li id="center" @click="clicked">中鋒</li>
       </ul>
-      <form>
-        <input type="text" placeholder="球員名稱" />
-        <base-button>Search</base-button>
+      <form @submit.prevent>
+        <input
+          type="search"
+          placeholder="球員名稱"
+          @input="search"
+          :value="searchTerm"
+        />
       </form>
     </section>
   </base-card>
@@ -19,10 +23,15 @@
 import { ref } from "vue";
 
 export default {
-  emits: ["position-filter"],
+  props: ["searchTerm"],
+  emits: ["position-filter", "search-term"],
   setup(_, context) {
     const bool = ref(true);
     const beforeTarget = ref(null);
+
+    function search(e) {
+      context.emit("search-term", e.target.value);
+    }
 
     function clicked(e) {
       bool.value = false;
@@ -33,14 +42,14 @@ export default {
 
       beforeTarget.value = e.target;
 
-      const position = e.target.textContent;
-
       e.target.classList.add("active");
+
+      const position = e.target.textContent;
 
       context.emit("position-filter", position);
     }
 
-    return { clicked, bool };
+    return { clicked, bool, search };
   },
 };
 </script>
@@ -76,17 +85,18 @@ ul {
 
 form {
   flex-grow: 2;
-}
+  padding-right: 1.5rem;
 
-input {
-  width: 80%;
-  border: none;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
-  border-radius: 2px 0 0 2px;
-  font-size: 16px;
-  font-family: inherit;
-  outline: none;
-  background-color: rgba(128, 128, 128, 0.075);
+  input {
+    width: 100%;
+    border: none;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-radius: 2px 0 0 2px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    background-color: rgba(128, 128, 128, 0.075);
+  }
 }
 
 .active {
