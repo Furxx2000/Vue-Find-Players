@@ -12,9 +12,9 @@
 import { computed } from "vue";
 
 export default {
-  props: ["id", "firstName", "lastName", "position", "team"],
+  props: ["id", "name", "position", "team"],
   setup(props) {
-    const fullName = computed(() => `${props.firstName}${props.lastName}`);
+    const fullName = computed(() => `${props.name}`);
 
     const team = computed(() => props.team);
 
