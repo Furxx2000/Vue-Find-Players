@@ -27,6 +27,5 @@ html {
 
 body {
   margin: 0;
-  background-color: $primary-color;
 }
 </style>
