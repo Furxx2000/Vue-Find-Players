@@ -1,51 +1,68 @@
 <template>
+  <the-menu @close="tryClose" :show="isMenuVisible"></the-menu>
   <header>
     <nav>
       <h1><router-link to="/">Find a Player</router-link></h1>
-      <ul>
-        <li>
-          <router-link to="/players">Players</router-link>
-        </li>
-        <li>
-          <router-link to="/login">Login</router-link>
-        </li>
-        <li><router-link to="/signUp">Signup</router-link></li>
-      </ul>
+      <figure @click="toggleMenu">
+        <img src="../../assets/icon/menu.svg" alt="" />
+      </figure>
     </nav>
   </header>
 </template>
+
+<script>
+import { ref } from "vue";
+import TheMenu from "./TheMenu.vue";
+
+export default {
+  components: { TheMenu },
+  setup() {
+    const isMenuVisible = ref(false);
+
+    function toggleMenu() {
+      isMenuVisible.value = !isMenuVisible.value;
+    }
+
+    function tryClose(val) {
+      isMenuVisible.value = val;
+    }
+
+    return { toggleMenu, isMenuVisible, tryClose };
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 header {
   height: 5rem;
   display: flex;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 
   nav {
-    width: 65%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
 
-  ul {
-    width: 20%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0;
-  }
+    a {
+      text-decoration: none;
+      color: black;
+    }
 
-  li {
-    list-style-type: none;
-  }
+    figure {
+      width: 35px;
+      height: 40px;
+      margin: 0;
 
-  a {
-    text-decoration: none;
-    color: white;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 </style>
