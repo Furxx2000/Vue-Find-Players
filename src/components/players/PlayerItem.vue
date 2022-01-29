@@ -1,6 +1,5 @@
 <template>
   <figure>
-    <span>{{ position }}</span>
     <img :src="imgSrc" alt="" />
     <figcaption>
       {{ fullName }}
@@ -30,27 +29,21 @@ export default {
 <style lang="scss" scoped>
 figure {
   position: relative;
-  width: 14%;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   margin: 0 0.5rem 3rem 0.5rem;
-  border: 2px solid black;
-  border-radius: 4px;
   cursor: pointer;
 
   img {
     width: 100%;
     height: 100%;
+    border-radius: 35%;
     object-fit: cover;
   }
 
-  span {
-    position: absolute;
-    right: 1px;
-    bottom: 0;
-    font-size: 14px;
-    color: white;
-    background-color: gray;
-    padding: 0 5px;
+  figcaption {
+    text-align: center;
+    font-size: 0.8rem;
   }
 }
 </style>
