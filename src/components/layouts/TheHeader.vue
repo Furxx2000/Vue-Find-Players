@@ -11,13 +11,23 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+
 import TheMenu from "./TheMenu.vue";
 
 export default {
   components: { TheMenu },
   setup() {
     const isMenuVisible = ref(false);
+    const route = useRoute();
+
+    watch(
+      () => route.path,
+      () => {
+        isMenuVisible.value = false;
+      }
+    );
 
     function toggleMenu() {
       isMenuVisible.value = !isMenuVisible.value;
