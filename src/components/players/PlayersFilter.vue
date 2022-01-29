@@ -60,9 +60,12 @@ export default {
 section {
   display: flex;
   align-items: center;
+  flex-direction: column-reverse;
+  margin-top: 1rem;
 }
 
 ul {
+  width: 100%;
   padding: 0 1rem;
   display: flex;
   justify-content: space-evenly;
@@ -84,14 +87,14 @@ ul {
 }
 
 form {
+  width: 90%;
   flex-grow: 2;
-  padding-right: 1.5rem;
 
   input {
     width: 100%;
     border: none;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
-    border-radius: 2px 0 0 2px;
+    border-radius: 1rem;
     font-size: 16px;
     font-family: inherit;
     outline: none;

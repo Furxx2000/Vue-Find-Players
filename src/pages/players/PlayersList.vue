@@ -1,25 +1,27 @@
 <template>
-  <section>
-    <players-filter
-      @search-term="updateSearch"
-      @position-filter="positionFilter"
-      :search-term="enteredSearchTerm"
-    ></players-filter>
-  </section>
-  <section>
-    <base-card>
-      <ul>
-        <player-item
-          v-for="player in searchPlayer"
-          :key="player.id"
-          :id="player.id"
-          :name="player.names.chiName"
-          :position="player.position"
-          :team="player.team.engTeamName"
-        ></player-item>
-      </ul>
-    </base-card>
-  </section>
+  <main>
+    <section>
+      <players-filter
+        @search-term="updateSearch"
+        @position-filter="positionFilter"
+        :search-term="enteredSearchTerm"
+      ></players-filter>
+    </section>
+    <section>
+      <base-card>
+        <ul>
+          <player-item
+            v-for="player in searchPlayer"
+            :key="player.id"
+            :id="player.id"
+            :name="player.names.chiName"
+            :position="player.position"
+            :team="player.team.engTeamName"
+          ></player-item>
+        </ul>
+      </base-card>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -86,11 +88,11 @@ export default {
 
 <style lang="scss" scoped>
 ul {
-  max-width: 705px;
-  padding: 0;
-  display: flex;
-  justify-content: flex-start;
+  padding: 0 1rem;
+  display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 0;
 }
 </style>
