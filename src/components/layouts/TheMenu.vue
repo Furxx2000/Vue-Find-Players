@@ -55,7 +55,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   height: 100vh;
   z-index: 10;
 }
