@@ -1,32 +1,35 @@
 <template>
-  <section>
-    <form>
-      <input type="text" placeholder="Search Players" />
-      <base-button>Search</base-button>
-    </form>
-  </section>
+  <main>
+    <section>
+      <form class="search--form">
+        <input type="text" placeholder="Search Players" />
+        <base-button>Search</base-button>
+      </form>
+    </section>
+  </main>
 </template>
 
 <style lang="scss" scoped>
-section {
+main {
+  max-width: 90%;
   height: 20rem;
   margin: 2rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  flex-direction: column;
 
-form {
-  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.212);
-}
+  form {
+    display: block;
+    border: 1px solid black;
 
-input {
-  width: 25rem;
-  border: none;
-  padding: 1rem;
-  border-radius: 2px 0 0 2px;
-  font-size: 16px;
-  font: inherit;
-  outline: none;
+    input {
+      border: none;
+      padding: 0.8rem;
+      font-size: 16px;
+      font: inherit;
+      outline: none;
+    }
+  }
 }
 </style>
