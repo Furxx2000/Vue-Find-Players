@@ -28,4 +28,9 @@ html {
 body {
   margin: 0;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+}
 </style>
