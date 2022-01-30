@@ -11,13 +11,16 @@
 
 <script>
 import { computed } from "vue";
+import { useRoute } from "vue-router";
 
 export default {
   props: ["id", "name", "position", "team"],
   setup(props) {
+    const route = useRoute();
+
     const fullName = computed(() => `${props.name}`);
     const playerId = computed(() => props.id);
-    const playerRoute = `/players/${playerId.value}`;
+    const playerRoute = `${route.path}/${playerId.value}`;
 
     const team = computed(() => props.team);
 
