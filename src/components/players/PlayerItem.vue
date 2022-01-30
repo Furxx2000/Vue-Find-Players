@@ -1,10 +1,12 @@
 <template>
-  <figure>
-    <img :src="imgSrc" alt="" />
-    <figcaption>
-      {{ fullName }}
-    </figcaption>
-  </figure>
+  <router-link :to="playerRoute">
+    <figure>
+      <img :src="imgSrc" alt="" />
+      <figcaption>
+        {{ fullName }}
+      </figcaption>
+    </figure>
+  </router-link>
 </template>
 
 <script>
@@ -14,6 +16,8 @@ export default {
   props: ["id", "name", "position", "team"],
   setup(props) {
     const fullName = computed(() => `${props.name}`);
+    const playerId = computed(() => props.id);
+    const playerRoute = `/players/${playerId.value}`;
 
     const team = computed(() => props.team);
 
@@ -21,7 +25,7 @@ export default {
       require(`../../assets/pics/${team.value}/${props.id}.jpg`)
     );
 
-    return { fullName, imgSrc };
+    return { fullName, imgSrc, playerRoute };
   },
 };
 </script>
