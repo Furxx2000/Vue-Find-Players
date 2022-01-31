@@ -72,7 +72,7 @@ nav {
   .account-avatar {
     display: flex;
     align-items: center;
-    height: 5rem;
+    height: 4rem;
     border-bottom: 1px solid black;
     padding: 1rem;
 

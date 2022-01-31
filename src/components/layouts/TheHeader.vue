@@ -44,7 +44,7 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  height: 5rem;
+  height: 4rem;
   display: flex;
   border-bottom: 1px solid black;
   justify-content: center;
