@@ -35,7 +35,6 @@ export default {
 
 <style lang="scss" scoped>
 figure {
-  position: relative;
   width: 60px;
   height: 60px;
   margin: 0 0.5rem 3rem 0.5rem;
