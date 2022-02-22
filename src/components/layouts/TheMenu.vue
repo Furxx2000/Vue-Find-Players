@@ -15,6 +15,7 @@
         </router-link>
         <ul>
           <li><router-link to="/players">Players</router-link></li>
+          <li><router-link to="/saveGames">Save Games</router-link></li>
         </ul>
       </nav>
     </transition>
@@ -79,7 +80,7 @@ nav {
     figure {
       width: 50px;
       height: 50px;
-      margin: 0 0.5rem 0 0;
+      margin: 0 0.5rem 0 0.9rem;
       display: flex;
       align-items: center;
 
@@ -100,6 +101,7 @@ nav {
     margin: 0;
 
     li {
+      margin: 1rem;
       font-size: 1.5rem;
       font-weight: 600;
       list-style-type: none;
