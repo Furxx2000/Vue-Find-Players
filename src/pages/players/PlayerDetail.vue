@@ -60,8 +60,8 @@ export default {
 
     // 計算年齡
     const realAge = computed(() => {
-      const playerBirthday = new Date(player.birthday);
       const now = new Date();
+      const playerBirthday = new Date(player.birthday);
       const age = now.getFullYear() - playerBirthday.getFullYear();
       const realPlayerMonth = playerBirthday.getMonth() + 1;
       const realNowMonth = now.getMonth() + 1;
@@ -95,8 +95,8 @@ export default {
       player,
       imgSrc,
       expand,
-      isOpen,
       averageData,
+      isOpen,
       realAge,
     };
   },
