@@ -54,9 +54,9 @@ export default {
       const players = computed(() => store.getters["players/players"]);
 
       if (!(position.value === "全部")) {
-        return players.value.filter((player) => {
-          return player.position === position.value;
-        });
+        return players.value.filter(
+          (player) => player.position === position.value
+        );
       }
       return players.value;
     });
