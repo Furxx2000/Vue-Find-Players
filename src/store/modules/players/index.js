@@ -21,7 +21,7 @@ export default {
             chiTeamName: "富邦勇士",
             engTeamName: "Fubon",
           },
-          lasFiveGames: [
+          lastFiveGames: [
             {
               gameDate: "2021-12-04",
               opponent: "台新夢想家",
@@ -46,11 +46,8 @@ export default {
               blk: 0,
               tov: 2,
               pf: 1,
+              rpm: "+10",
             },
-            {},
-            {},
-            {},
-            {},
           ],
           height: 192,
           weight: 92,
