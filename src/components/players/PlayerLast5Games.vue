@@ -9,16 +9,16 @@
   <div>{{ gameStats.twoPointsPercentage }}</div>
   <div>{{ gameStats.threePoints.value.fgm }}</div>
   <div>{{ gameStats.threePoints.value.fga }}</div>
-  <div>40.0</div>
+  <div>{{ gameStats.threePointsPercentage }}</div>
   <div>{{ gameStats.freeThrow.value.ftm }}</div>
   <div>{{ gameStats.freeThrow.value.fta }}</div>
-  <div>100</div>
+  <div>{{ gameStats.freeThrowPercentage }}</div>
   <div>{{ gameStats.oreb.value }}</div>
   <div>{{ gameStats.dreb.value }}</div>
+  <div>{{ gameStats.totalReb }}</div>
   <div>{{ gameStats.ast.value }}</div>
   <div>{{ gameStats.stl.value }}</div>
   <div>{{ gameStats.blk.value }}</div>
-  <div>{{ gameStats.tov.value }}</div>
   <div>{{ gameStats.tov.value }}</div>
   <div>{{ gameStats.pf.value }}</div>
   <div>{{ gameStats.rpm.value }}</div>
@@ -79,7 +79,7 @@ export default {
     const stats = toRefs(props);
 
     // 得分計算
-    const { twoPoints, threePoints, freeThrow } = stats;
+    const { twoPoints, threePoints, freeThrow, oreb, dreb } = stats;
 
     const scores = computed(
       () =>
@@ -93,13 +93,18 @@ export default {
       ((twoPoints.value.fgm / twoPoints.value.fga) * 100).toFixed(1)
     );
 
-    const threePointsPercentage = computed(
-      () => (threePoints.value.fgm / threePoints.value.fga) * 100
+    const threePointsPercentage = computed(() =>
+      ((threePoints.value.fgm / threePoints.value.fga) * 100).toFixed(1)
     );
 
-    const freeThrowPercentage = computed(
-      () => (freeThrow.value.ftm / freeThrow.value.fta) * 100
-    );
+    const freeThrowPercentage = computed(() => {
+      if (freeThrow.value.fta === 0 || freeThrow.value.ftm === 0) return 0;
+
+      return ((freeThrow.value.ftm / freeThrow.value.fta) * 100).toFixed(1);
+    });
+
+    // 籃板球總數計算
+    const totalReb = computed(() => oreb.value + dreb.value);
 
     // 將計算好的數據加入到gameStats
     const gameStats = {
@@ -108,6 +113,7 @@ export default {
       twoPointsPercentage: twoPointsPercentage.value,
       threePointsPercentage: threePointsPercentage.value,
       freeThrowPercentage: freeThrowPercentage.value,
+      totalReb: totalReb.value,
     };
 
     return { gameStats };
@@ -125,6 +131,7 @@ export default {
 
 div {
   padding: 0.5rem 0.5rem;
+  font-size: 14px;
 }
 
 div:not(.game-date, .game-matchup) {
