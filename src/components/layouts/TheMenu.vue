@@ -58,7 +58,7 @@ a {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.1);
   height: 100vh;
-  z-index: 10;
+  z-index: 150;
 }
 
 nav {
@@ -68,7 +68,7 @@ nav {
   width: 100%;
   height: 100vh;
   background-color: white;
-  z-index: 100;
+  z-index: 200;
 
   .account-avatar {
     display: flex;
