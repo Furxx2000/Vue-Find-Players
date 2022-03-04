@@ -62,7 +62,7 @@
             <div>PF</div>
             <div>+/-</div>
             <player-last5Games
-              v-for="game in player.lastFiveGames"
+              v-for="game in selectedPlayersLastFiveGames"
               :key="game.gameDate"
               :game-date="game.gameDate"
               :opponent="game.opponent"
@@ -113,6 +113,17 @@ export default {
       ...selectedPlayers.value,
     });
 
+    // 篩選出球員最近五場資料
+    const selectedPlayersLastFiveGames = computed(() => {
+      const players = computed(
+        () => store.getters["lastFiveGames/playersLastFiveGames"]
+      );
+
+      const selectedPlayersName = selectedPlayers.value.names.chiName;
+      return players.value.find((player) => player.name === selectedPlayersName)
+        .lastFiveGames;
+    });
+
     // 計算年齡
     const realAge = computed(() => {
       const now = new Date();
@@ -153,6 +164,7 @@ export default {
       averageData,
       isOpen,
       realAge,
+      selectedPlayersLastFiveGames,
     };
   },
 };
@@ -270,6 +282,7 @@ main {
       font-family: "Open Sans", sans-serif;
       font-size: 14px;
       font-weight: 500;
+      letter-spacing: 0.7px;
     }
 
     .games-stats-title > div:not(.game-date, .game-matchup) {
