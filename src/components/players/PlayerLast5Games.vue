@@ -89,19 +89,14 @@ export default {
     );
 
     // 2分球, 3分球命中率
-    const twoPointsPercentage = computed(() =>
-      ((twoPoints.value.fgm / twoPoints.value.fga) * 100).toFixed(1)
-    );
+    const percentage = (points) => {
+      const shootingAttempt = points.fta || points.fga;
+      const shootingMade = points.ftm || points.fgm;
 
-    const threePointsPercentage = computed(() =>
-      ((threePoints.value.fgm / threePoints.value.fga) * 100).toFixed(1)
-    );
+      if (shootingAttempt === undefined || shootingMade === undefined) return 0;
 
-    const freeThrowPercentage = computed(() => {
-      if (freeThrow.value.fta === 0 || freeThrow.value.ftm === 0) return 0;
-
-      return ((freeThrow.value.ftm / freeThrow.value.fta) * 100).toFixed(1);
-    });
+      return ((shootingMade / shootingAttempt) * 100).toFixed(1);
+    };
 
     // 籃板球總數計算
     const totalReb = computed(() => oreb.value + dreb.value);
@@ -110,9 +105,9 @@ export default {
     const gameStats = {
       ...stats,
       scores: scores.value,
-      twoPointsPercentage: twoPointsPercentage.value,
-      threePointsPercentage: threePointsPercentage.value,
-      freeThrowPercentage: freeThrowPercentage.value,
+      twoPointsPercentage: percentage(twoPoints.value),
+      threePointsPercentage: percentage(threePoints.value),
+      freeThrowPercentage: percentage(freeThrow.value),
       totalReb: totalReb.value,
     };
 
