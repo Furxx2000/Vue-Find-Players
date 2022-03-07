@@ -121,7 +121,7 @@ export default {
 
       const selectedPlayersName = selectedPlayers.value.names.chiName;
       return players.value.find((player) => player.name === selectedPlayersName)
-        .lastFiveGames;
+        ?.lastFiveGames;
     });
 
     // 計算年齡
