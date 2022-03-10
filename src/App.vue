@@ -1,14 +1,17 @@
 <template>
   <the-header></the-header>
   <router-view></router-view>
+  <the-footer></the-footer>
 </template>
 
 <script>
 import TheHeader from "./components/layouts/TheHeader.vue";
+import TheFooter from "./components/layouts/TheFooter.vue";
 
 export default {
   components: {
     TheHeader,
+    TheFooter,
   },
 };
 </script>
@@ -24,6 +27,10 @@ export default {
 
 html {
   font-family: "Jost", sans-serif;
+}
+
+main {
+  min-height: calc(100vh - 4rem - 200px);
 }
 
 body {
