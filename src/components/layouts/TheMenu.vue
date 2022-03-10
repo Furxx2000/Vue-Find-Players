@@ -8,7 +8,7 @@
         <router-link to="/search">
           <section class="account-avatar">
             <figure>
-              <img src="../../assets/icon/account.svg" alt="" />
+              <svg-icon icon-class="account"></svg-icon>
             </figure>
             <span>登入</span>
           </section>
@@ -78,16 +78,13 @@ nav {
     padding: 1rem;
 
     figure {
-      width: 50px;
-      height: 50px;
       margin: 0 0.5rem 0 0.9rem;
       display: flex;
       align-items: center;
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+      .icon-account {
+        width: 50px;
+        height: 50px;
       }
     }
 

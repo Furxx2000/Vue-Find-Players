@@ -4,7 +4,7 @@
     <nav>
       <h1><router-link to="/">Find a Player</router-link></h1>
       <figure @click="toggleMenu">
-        <img src="../../assets/icon/menu.svg" alt="" />
+        <svg-icon icon-class="menu"></svg-icon>
       </figure>
     </nav>
   </header>
@@ -64,13 +64,11 @@ header {
     }
 
     figure {
-      width: 35px;
-      height: 40px;
       margin: 0;
 
-      img {
-        width: 100%;
-        height: 100%;
+      .icon-menu {
+        width: 35px;
+        height: 40px;
       }
     }
   }
