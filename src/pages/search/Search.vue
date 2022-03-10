@@ -13,7 +13,7 @@
 main {
   max-width: 90%;
   height: 20rem;
-  margin: 2rem auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
